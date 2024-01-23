@@ -1,0 +1,33 @@
+<form>
+    <label for="nombre">Nombre</label>
+    <input id="nombre" name="nombre" required type="text">
+    <br>
+    <br>
+    <label for="apellidos">Apellidos</label>
+    <input id="apellidos" name="apellidos" required type="text">
+    <br>
+    <br>
+    <fieldset>
+        <legend>Comida favorita:</legend>
+        <input type="radio" id="pizza" name="comida" value="pizza" required>
+        <label for="pizza">Pizza</label>
+    
+        <input type="radio" id="Hamburguesa" name="comida" value="hamburguesa">
+        <label for="Hamburguesa">Hamburguesa</label>
+    </fieldset>
+    <br>
+    <br>
+    <label for="genero-musical">Género musical:</label>
+      <select name="genero-musical" id="genero-musical" required>
+        <option value="">--Escoge una opción--</option>
+        <option value="rock">Rock</option>
+        <option value="jazz">Jazz</option>
+        <option value="pop">Pop</option>
+        <option value="electronica">Electrónica</option>
+        <option value="rap">Rap</option>
+        <option value="folk">Folk</option>
+      </select>
+    <br>
+    <br>
+    <button type="submit">Submit</button>    
+</form>
