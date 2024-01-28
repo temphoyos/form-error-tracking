@@ -1,20 +1,15 @@
-/*Following code to be deployed through a GTM CHTML tag.*/
-//Javascript IIFE
-(function () {  
-    //Is the form to which I want to add tracking availabe on the DOM? - Needs to be adjusted to your form
-    if(document.querySelector('form#testForm')){
-        //Creating formularioCounter variable in Global namespace to keep a track of total form submits
-        var formularioCounter = window.formularioCounter || 0;
-        //Storing to be tracked form in a variable - Needs to be adjusted to your form
-        var formulario = document.querySelector('form#testForm');
-         //Adding 'click' event listener to form. Will be listening to clicks on submit button through eventHandler.
-        formulario.addEventListener('click',function(e){
+/*Following code to be deployed on a GTM Custom Javascript Variable and to be used in conjunction with the acompanying CHTML tag code (chtml_formErrorEventListener.html)*/
+function(){
+    return function(e){
+        try{
+            //Store form in a locally scoped variable. This needs to be adjusted to your form.
+            var formulario = document.querySelector('form#testForm');
             //If I click on the submit button
             if(e.target['type']==='submit'){
                 //Leverage checkValidity() method to see if form is complete
                 if(formulario.checkValidity()){
-                    //Adding 1 to formularioCounter variable
-                    formularioCounter += 1;
+                    //Add 1 to formularioCounter variable
+                    window.formularioCounter += 1;
                     //dataLayer.push()
                     window.dataLayer.push({
                         event:'form_submit_success',
@@ -23,10 +18,10 @@
                 }
                 //If form is not complete
                 else{
-                    //Adding 1 to formularioCounter variable
-                    formularioCounter += 1;
+                    //Add 1 formularioCounter
+                    window.formularioCounter += 1;
                     //Storing all form fields in an array. This needs to be adjusted to your form
-                    var camposFormulario = Array.from(document.querySelectorAll('input[type="text"],#pizza,#genero-musical'));
+                    var camposFormulario = Array.from(formulario.querySelectorAll('input[type="text"],#pizza,#genero-musical'));
                     //Create camposFormularioNoRellenados empty array. Will use it later
                     var camposFormularioNoRellenados = [];
                     //I loop through each camposFormulario array items
@@ -66,6 +61,6 @@
                     });
                 }
             }
-        });
+        }catch(error){}
     }
-})();
+}
