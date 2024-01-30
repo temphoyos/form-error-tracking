@@ -1,4 +1,5 @@
-This repository includes a dummy html form (form.html) to serve as a the testing ground for the acocompanying JS files. These files in turn contain code that has been developed to enable Google Tag Manager error tracking on the aformentioned form.
+# Tracking errors on your forms with Google Tag Manager (GTM)
+This repository includes a dummy html form (form.html) to serve as the testing ground for the acocompanying JS files. These files in turn contain code that has been developed to enable Google Tag Manager error tracking on the aformentioned form.
 
 This code has been developed so that it is deployed from within Google Tag Manager itself with the aim of: 
 
@@ -8,6 +9,7 @@ This code has been developed so that it is deployed from within Google Tag Manag
 
 -Pushing to the dataLayer the name of the fields that were not successfully filed out and resulted in a submit error
 
+#How to use the code contained in this repository from Google Tag Manager (GTM)
 Two different approaches can be followed:
 
 -Attach the necessary eventListener and handle the form events from within the same code. This is accomplished through the formTracking.js file, which is intented to be deployed through a Google Tag Manager CHTML tag. 
